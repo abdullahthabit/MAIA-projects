@@ -1,0 +1,16 @@
+{
+				"Nifti Source": "./../MICCAI_BraTS_2019_Data_Training/*/",
+				"Splits": [4],
+				"Model Source": "v13",
+                "Dataset": "Brats18",
+				"Patch size": [
+                    128,
+				    128,
+				    128
+				],
+				"Batch size": 1,
+				"Output type": "save",
+				"Only first": true,
+
+                "pickleVar": "./../segUncer.pickle"
+			}

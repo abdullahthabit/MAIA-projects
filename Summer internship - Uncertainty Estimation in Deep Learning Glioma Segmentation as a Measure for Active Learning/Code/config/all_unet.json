@@ -1,0 +1,23 @@
+{
+
+    "Model": ["resunet",{"k": 1, "inputsize": 4, "outputsize": 5}],
+
+    "Model Source": "vx",
+    "Epochs": 1,
+	"Splits": [0,1,2,3],
+	"Patch size": [128, 128, 128],
+    "Num Workers": 0,
+	"Nifti Source": "./../MICCAI_BraTS_2019_Data_Training/*/",
+	"Batch size": 1,
+	"Batches per epoch": 2,
+	"Testsplits": [4],
+	"Dataset": "Brats18",
+	"Sequences": ["t2", "t1", "flair", "t1Gd"],
+	"Loss": "crossentropy",
+    "numSimulations": 10,
+    "dice_loss_weights": [0.2,2,2,0,2],
+
+	"evaluate": true,
+	"Output type": "save",
+	"Only first": true
+}
