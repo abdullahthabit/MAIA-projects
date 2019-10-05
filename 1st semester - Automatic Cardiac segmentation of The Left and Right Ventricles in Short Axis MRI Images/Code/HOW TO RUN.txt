@@ -1,0 +1,21 @@
+We appologize for not having the time to develop a GUI for the program
+as we have encountered serious issues with our previous method, causing us to 
+switch the method after weeks of working, which has left us with very limited time. 
+
+However, the code is very organized and easy to use:
+
+## you only need to run the file: MainCode
+
+## make sure you add the project folder and subfolder to your MATLAB path
+
+## navigate to the folder of the patient Nifti data, or add the training data
+	folder to MATLAB path
+
+## on MainCode file: change the 3rd line according to the patient you want to test
+	for example -- ImageName = 'patient0XX_4d.nii.gz';
+	--- change the XX to patient number (i.e 01 for the 1st patient)
+
+## Then click run, locate the marker inside the LV cavity
+
+## Wait, and finally, the segmentation results for the slices of the respective patient
+	will show up
