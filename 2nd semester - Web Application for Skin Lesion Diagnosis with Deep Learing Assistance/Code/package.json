@@ -1,0 +1,34 @@
+{
+  "name": "skinwebapp",
+  "version": "1.0.0",
+  "description": "skin cancer web application using nodejs, express, mysql",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "skincancer",
+    "webapp",
+    "nodejs",
+    "mysql",
+    "expressjs"
+  ],
+  "author": "Tewodros, Patricia, Abdullah",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "crypto": "^1.0.1",
+    "cryptr": "^4.0.2",
+    "dateformat": "^3.0.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.1.4",
+    "express-flash": "0.0.2",
+    "express-session": "^1.16.1",
+    "json_encode": "^0.1.0",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.18.11",
+    "socket.io": "^2.2.0"
+  }
+}

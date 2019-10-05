@@ -1,0 +1,60 @@
+<!-- views/partials/nav.ejs -->
+<!-- Preloader -->
+<div id="preloader">
+    <div class="wrapper">
+        <div class="cssload-loader"></div>
+    </div>
+</div>
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area">
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="uzaNav">
+
+                <!-- Logo -->
+                <a class="nav-brand" href="/"><img src="/img/core-img/SD_logo.png" /></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- Menu Close Button -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul id="nav">
+                            <li class="<%= selected_menu == 'patient' ? 'current-item' : '' %>"><a href="patient">Home</a></li>
+                            <li class="<%= selected_menu == 'MyProfile' ? 'current-item' : '' %>"><a href="MyProfile">My profile</a></li>
+                            <li class="<%= selected_menu == 'new_diagnose' ? 'current-item' : '' %>"><a href="new_diagnose">New Diagnosis</a></li> 
+                            <li class="<%= selected_menu == 'Results' ? 'current-item' : '' %>"><a href="Results">Results</a></li> 
+                            <li class="<%= selected_menu == 'Messages' ? 'current-item' : '' %>"><a href="messages_patient">Messages</a></li> 
+<!--                             <li class="<%= selected_menu == 'LogOut' ? 'current-item' : '' %>"><a href="#">Log out</a></li> --> 
+                        <% if ( fname.length > 0 ) { %>  
+                            <li><a href="#"><%= fname %></a>
+                        <% } %>                            
+                                <ul class="dropdown">
+                                    <li ><a href="patient">Home</a></li>                                                                                                                                                     
+                                    <li ><a href="logout">Log out</a></li>                            
+                                </ul>
+                            </li>
+                        </ul>                        
+
+
+                      
+                    </div>
+                    <!-- Nav End -->
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

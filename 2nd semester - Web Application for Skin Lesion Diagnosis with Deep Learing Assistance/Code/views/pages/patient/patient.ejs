@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include ../../partials/head %>
+
+<body>
+
+    <% include ../../partials/navPatient %>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Welcome Area Start ***** -->
+    <section class="welcome-area">
+
+        <!-- Single Welcome Slide -->
+        <div class="single-welcome-slide">
+            <!-- Background Curve -->
+            <div class="background-curve">
+                <img src="./img/core-img/curve-1.png" alt="">
+            </div>
+
+            <!-- Welcome Content -->
+            <div class="welcome-content h-100">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <!-- Welcome Text -->
+                        <div class="col-12 col-md-6">
+                            <div class="welcome-text">
+                                <h2 data-animation="fadeInUp" data-delay="100ms">WELCOME <br><span>
+                                        <% if ( fname.length > 0 ) { %>  
+                                            <%= fname %>
+                                        <% } %></span></h2>                                   
+                            </div>
+                        </div>
+                        <!-- Welcome Thumbnail -->
+                        <div class="col-12 col-md-6">
+                            <div class="welcome-thumbnail">
+                                <img src="./img/bg-img/1.png" alt="" data-animation="slideInRight" data-delay="400ms">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+    <!-- ***** Welcome Area End ***** -->
+
+    <!-- ***** About Us Area Start ***** -->
+    
+    <!-- ***** About Us Area End ***** -->
+
+    <!-- ***** Services Area Start ***** -->
+   
+    <!-- ***** Services Area End ***** -->
+
+    <!-- ***** Portfolio Area Start ***** -->
+    
+    <!-- ***** Portfolio Area End ***** -->
+
+    <!-- ***** Blog Area Start ***** -->
+    
+    <!-- ***** Blog Area End ***** -->
+
+    <!-- ***** Newsletter Area Start ***** -->
+    
+    <!-- ***** Newsletter Area End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
+
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- ******* All JS Files ******* -->
+    <% include ../../partials/scripts %>
+    
+
+</body>
+
+</html>

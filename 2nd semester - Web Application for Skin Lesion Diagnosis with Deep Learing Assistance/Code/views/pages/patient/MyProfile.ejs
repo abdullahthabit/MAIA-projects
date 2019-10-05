@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include ../../partials/head %>
+<style>
+
+img {
+height: 100px;
+width: 100px;
+object-fit: contain;
+}
+</style>
+
+<body>
+    
+    <% include ../../partials/navPatient %>
+    <!-- ***** Header Area End ***** -->
+    
+    <!-- ***** Welcome Area Start ***** -->
+    <!-- ***** Welcome Area End ***** -->
+    
+    <!-- ***** About Us Area Start ***** -->
+    <!-- ***** About Us Area Start ***** -->
+    <section class="welcome-area">
+
+            <!-- Single Welcome Slide -->
+            <div class="single-welcome-slide">
+                <!-- Background Curve -->
+                <div class="background-curve">
+                    <img src="./img/core-img/curve-1.png" alt="">
+                </div>
+
+                <!-- Welcome Content -->
+                <div class="welcome-content h-100">
+                    <div class="container h-100">
+                        <div class="row h-100 align-items-center" >
+                            
+                            <!-- Welcome Thumbnail -->
+                            <div class="col-12 col-md-6">
+                                <div class="welcome-thumbnail">
+                                    <!-- <img src="./img/bg-img/noPhoto.png" style="width:300px;height:300px;" alt=""> -->
+                                    <img alt="User Pic" src="./img/profile_picture/<%=patient.img_name%>" style="width:300px;height:300px;" >
+                                </div>
+                                <form action="/addprofile" method="post" enctype="multipart/form-data">
+                                    <br/>
+                                    <input type="file" name="profile_image" accept="image/*" required /><br/>
+                                    <button type="submit" style="margin:20px" class="btn uza-btn btn-2" >Change Profile Photo</button>
+                                </form>                                 
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+            </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- About Thumbnail -->
+
+            <!-- About Us Content -->
+        
+
+        <div class="about-us-content mb-80">
+            <div class="about-tab-area">
+                <ul class="nav nav-tabs mb-50" id="mona_modelTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tab1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Personal Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"> Contact Information</a>
+                    </li>
+                    
+                </ul>
+            </div>
+                
+                <% if (patient) { %>
+                <!-- Mona Tab Content -->
+                <div class="about-tab-content">
+                    <div class="tab-content" id="mona_modelTabContent">
+                        <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab1">
+                            <!-- Tab Content Text -->
+                            <div class="tab-content-text">
+                                <p><b>Name: </b><%= patient.fname %></p>
+                                <p><b>Last name:</b> <%= patient.lname %></p>
+                                <p><b>Nationality: </b><%= patient.nationality %></p>
+                                <p><b>Date of birth:</b> <%= patient.birthday %></p>
+                                <p><b>Gender:</b> <%= patient.gender %></p>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2">
+                            <!-- Tab Content Text -->
+                            <div class="tab-content-text">
+                                <p><b>Email:</b> <%= patient.patient_id %></p>                                    
+                            </div>
+                        </div>
+                                                
+                    </div>
+                </div>
+                <% } else { %>
+                    <p class="text-center">Patient not found</p>
+                <% } %>
+            </div>
+            
+        </div>
+    </div>
+        
+        <!-- About Background Pattern -->
+
+    </section>
+    <!-- ***** About Us Area End ***** -->
+    <!-- ***** About Us Area End ***** -->
+    
+    <!-- ***** Services Area Start ***** -->
+    
+    <!-- ***** Services Area End ***** -->
+    
+    <!-- ***** Portfolio Area Start ***** -->
+    
+    <!-- ***** Portfolio Area End ***** -->
+    
+    <!-- ***** Blog Area Start ***** -->
+    
+    <!-- ***** Blog Area End ***** -->
+    
+    <!-- ***** Newsletter Area Start ***** -->
+    
+    <!-- ***** Newsletter Area End ***** -->
+    
+    <!-- ***** Footer Area Start ***** -->
+    
+    <!-- ***** Footer Area End ***** -->
+    
+    <!-- ******* All JS Files ******* -->
+    <% include ../../partials/scripts %>
+    
+    
+</body>
+
+</html>

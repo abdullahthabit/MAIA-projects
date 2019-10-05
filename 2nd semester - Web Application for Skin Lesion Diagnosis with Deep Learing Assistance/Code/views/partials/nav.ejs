@@ -1,0 +1,63 @@
+<!-- views/partials/nav.ejs -->
+<!-- Preloader -->
+<div id="preloader">
+    <div class="wrapper">
+        <div class="cssload-loader"></div>
+    </div>
+</div>
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area">
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismmiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <%= message %>
+                </div>
+              <% } %>
+            <nav class="classy-navbar justify-content-between" id="uzaNav">
+               
+                <!-- Logo -->
+                <a class="nav-brand" href="/"><img src="/img/core-img/SD_logo.png" /></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- Menu Close Button -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul id="nav">
+                            <li class="<%= selected_menu == 'Index' ? 'current-item' : '' %>"><a href="/">Home</a></li>                            
+
+
+                        <!-- write a new menu like this -->
+                            <li class="<%= selected_menu == 'About' ? 'current-item' : '' %>"><a href="/about">About Us</a></li> 
+                                                        
+                        </ul>                        
+
+                        <!-- Login / Register -->
+                        <div class="login-register-btn mx-3">
+                            <li class="<%= selected_menu == 'Login' ? 'current-item' : '' %>"><a href="/login_form">Login/Register </a></li>
+                        </div>
+                      
+                    </div>
+                    <!-- Nav End -->
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

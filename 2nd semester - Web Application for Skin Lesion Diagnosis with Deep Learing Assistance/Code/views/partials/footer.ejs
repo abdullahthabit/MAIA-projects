@@ -1,0 +1,73 @@
+<!-- views/partials/footer.ejs -->
+<footer class="footer-area section-padding-80-0">
+    <div class="container">
+        <div class="row justify-content-between">
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-80">
+                    <!-- Widget Title -->
+                    <h4 class="widget-title">Contact Us</h4>
+
+                    <!-- Footer Content -->
+                    <div class="footer-content mb-15">
+                        <h3>(+33) 777254792</h3>
+                        <p>Viale dell'Università, 03043, Cassino, Italy <br> skin_detection@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-80">
+                    <!-- Widget Title -->
+                    <h4 class="widget-title">Quick Link</h4>
+
+                    <!-- Nav -->
+                    <nav>
+                        <ul class="our-link">
+                            <li class="<%= selected_menu == 'About' ? 'current-item' : '' %>"><a href="about">About</a></li>
+                            <li class="<%= selected_menu == 'Contact' ? 'current-item' : '' %>"><a href="contact">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-80">
+                    <!-- Widget Title -->
+                    <h4 class="widget-title">Resources</h4>
+
+                    <!-- Nav -->
+                    <nav>
+                        <ul class="our-link">
+                            <li class="<%= selected_menu == 'services' ? 'current-item' : '' %>"><a href="services">Services</a></li>
+                            <li class="<%= selected_menu == 'Privacy' ? 'current-item' : '' %>"><a href="privacy">Privacy</a></li>
+                            <li class="<%= selected_menu == 'OurTeam' ? 'current-item' : '' %>"><a href="Out_Team">Our_team</a></li>
+                            <li class="<%= selected_menu == 'contact' ? 'current-item' : '' %>"><a href="contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-80">
+                    <!-- Widget Title -->
+                    <h4 class="widget-title">About Us</h4>
+                    <p>We are a team comprising by medical doctors and engineers.</p>
+                </div>
+            </div>
+
+        </div>
+
+<div class="row" style="margin-bottom: 30px;">
+            
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+
+    </div>
+</footer>

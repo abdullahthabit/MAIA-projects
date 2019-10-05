@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script src="js/check_password.js"></script>
+	<title>Registration</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-85 p-b-20">
+				<form class="login100-form validate-form" method="POST" action="/user_registeration">
+					<span class="login100-form-title p-b-70">
+						Registration
+					</span>
+					<span class="login100-form-avatar">
+						<img src="img/core-img/SD_logo.png" alt="AVATAR">
+					</span>
+
+					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "fname">
+							<input class="input100" type="text" name="fname" id="fname" required>
+							<span class="focus-input100" data-placeholder="Enter your first name"></span>
+						</div>
+	
+						<div class="wrap-input100 validate-input m-b-50" data-validate = "lname">
+							<input class="input100" type="text" name="lname" required>
+							<span class="focus-input100" data-placeholder="Enter your lastname"></span>
+						</div>
+	
+						<!-- <div class="wrap-input100 validate-input m-b-50" data-validate = "Phone_number">
+							<input class="input100" type="text" name="gender">
+							<span class="focus-input100" data-placeholder="Insert phone number"></span>
+						</div> -->							
+	
+						<div class="wrap-input100 validate-input m-b-50" data-validate = "Enter username">
+							<input class="input100" type="email" name="username"  required>
+							<span class="focus-input100" data-placeholder="Enter your email address"></span>
+						</div>
+	
+						<div class="wrap-input100 validate-input m-b-50" data-validate="Password">
+							<input class="input100" type="password" name="pass" id ="password" onkeyup='check()' required>
+							<span class="focus-input100" data-placeholder="Enter password"></span>
+						</div>
+	
+						<div class="wrap-input100 validate-input m-b-50" data-validate="Confirm password">
+								<input class="input100" type="password" id ="confirm_password" name="confirmpass" onkeyup='check()' required>
+								<span class="focus-input100" data-placeholder="Confirm your password" ></span>
+								<span id='message'></span>
+						</div>
+						
+						<div  class="wrap-input100 validate-input m-b-50" data-validate = "Select your nationality">
+								<select class="input100" id ="Nationality" name="Nationality" type="text">
+										<option value="" selected disabled>--Country--</option>
+										<option >Afghanistan</option>
+										<option  >Albania</option>
+										<option  >Algeria</option>
+										<option  ">American Samoa</option>
+										<option  >Andorra</option>
+										<option  >Angola</option>
+										<option  >Anguilla</option>										
+										<option  >Argentina</option>
+										<option  >Armenia</option>
+										<option >Aruba</option>
+										<option >Australia</option>
+										<option >Austria</option>
+										<option >Azerbaijan</option>
+										<option >Bahamas</option>
+										<option >Bahrain</option>
+										<option value="BD">Bangladesh</option>
+										<option value="BB">Barbados</option>
+										<option value="BY">Belarus</option>
+										<option value="BE">Belgium</option>
+										<option value="BZ">Belize</option>
+										<option value="BJ">Benin</option>
+										<option value="BM">Bermuda</option>
+										<option value="BT">Bhutan</option>
+										<option value="BO">Bolivia</option>
+										<option value="BL">Bonaire</option>
+										<option value="BA">Bosnia &amp; Herzegovina</option>
+										<option value="BW">Botswana</option>
+										<option value="BR">Brazil</option>
+										<option value="BC">British Indian Ocean Ter</option>
+										<option value="BN">Brunei</option>
+										<option value="BG">Bulgaria</option>
+										<option value="BF">Burkina Faso</option>
+										<option value="BI">Burundi</option>
+										<option value="KH">Cambodia</option>
+										<option value="CM">Cameroon</option>
+										<option value="CA">Canada</option>
+										<option value="IC">Canary Islands</option>
+										<option value="CV">Cape Verde</option>
+										<option value="KY">Cayman Islands</option>
+										<option value="CF">Central African Republic</option>
+										<option value="TD">Chad</option>
+										<option value="CD">Channel Islands</option>
+										<option value="CL">Chile</option>
+										<option value="CN">China</option>
+										<option value="CI">Christmas Island</option>
+										<option value="CS">Cocos Island</option>
+										<option value="CO">Colombia</option>
+										<option value="CC">Comoros</option>
+										<option value="CG">Congo</option>
+										<option value="CK">Cook Islands</option>
+										<option value="CR">Costa Rica</option>
+										<option value="CT">Cote D'Ivoire</option>
+										<option value="HR">Croatia</option>
+										<option value="CU">Cuba</option>
+										<option value="CB">Curacao</option>
+										<option value="CY">Cyprus</option>
+										<option value="CZ">Czech Republic</option>
+										<option value="DK">Denmark</option>
+										<option value="DJ">Djibouti</option>
+										<option value="DM">Dominica</option>
+										<option value="DO">Dominican Republic</option>
+										<option value="TM">East Timor</option>
+										<option value="EC">Ecuador</option>
+										<option value="EG">Egypt</option>
+										<option value="SV">El Salvador</option>
+										<option value="GQ">Equatorial Guinea</option>
+										<option value="ER">Eritrea</option>
+										<option value="EE">Estonia</option>
+										<option value="ET">Ethiopia</option>
+										<option value="FA">Falkland Islands</option>
+										<option value="FO">Faroe Islands</option>
+										<option value="FJ">Fiji</option>
+										<option value="FI">Finland</option>
+										<option value="FR">France</option>
+										<option value="GF">French Guiana</option>
+										<option value="PF">French Polynesia</option>
+										<option value="FS">French Southern Ter</option>
+										<option value="GA">Gabon</option>
+										<option value="GM">Gambia</option>
+										<option value="GE">Georgia</option>
+										<option value="DE">Germany</option>
+										<option value="GH">Ghana</option>
+										<option value="GI">Gibraltar</option>
+										<option value="GB">Great Britain</option>
+										<option value="GR">Greece</option>
+										<option value="GL">Greenland</option>
+										<option value="GD">Grenada</option>
+										<option value="GP">Guadeloupe</option>
+										<option value="GU">Guam</option>
+										<option value="GT">Guatemala</option>
+										<option value="GN">Guinea</option>
+										<option value="GY">Guyana</option>
+										<option value="HT">Haiti</option>
+										<option value="HW">Hawaii</option>
+										<option value="HN">Honduras</option>
+										<option value="HK">Hong Kong</option>
+										<option value="HU">Hungary</option>
+										<option value="IS">Iceland</option>
+										<option value="IN">India</option>
+										<option value="ID">Indonesia</option>
+										<option value="IA">Iran</option>
+										<option value="IQ">Iraq</option>
+										<option value="IR">Ireland</option>
+										<option value="IM">Isle of Man</option>
+										<option value="IL">Israel</option>
+										<option value="IT">Italy</option>
+										<option value="JM">Jamaica</option>
+										<option value="JP">Japan</option>
+										<option value="JO">Jordan</option>
+										<option value="KZ">Kazakhstan</option>
+										<option value="KE">Kenya</option>
+										<option value="KI">Kiribati</option>
+										<option value="NK">Korea North</option>
+										<option value="KS">Korea South</option>
+										<option value="KW">Kuwait</option>
+										<option value="KG">Kyrgyzstan</option>
+										<option value="LA">Laos</option>
+										<option value="LV">Latvia</option>
+										<option value="LB">Lebanon</option>
+										<option value="LS">Lesotho</option>
+										<option value="LR">Liberia</option>
+										<option value="LY">Libya</option>
+										<option value="LI">Liechtenstein</option>
+										<option value="LT">Lithuania</option>
+										<option value="LU">Luxembourg</option>
+										<option value="MO">Macau</option>
+										<option value="MK">Macedonia</option>
+										<option value="MG">Madagascar</option>
+										<option value="MY">Malaysia</option>
+										<option value="MW">Malawi</option>
+										<option value="MV">Maldives</option>
+										<option value="ML">Mali</option>
+										<option value="MT">Malta</option>
+										<option value="MH">Marshall Islands</option>
+										<option value="MQ">Martinique</option>
+										<option value="MR">Mauritania</option>
+										<option value="MU">Mauritius</option>
+										<option value="ME">Mayotte</option>
+										<option value="MX">Mexico</option>
+										<option value="MI">Midway Islands</option>
+										<option value="MD">Moldova</option>
+										<option value="MC">Monaco</option>
+										<option value="MN">Mongolia</option>
+										<option value="MS">Montserrat</option>
+										<option value="MA">Morocco</option>
+										<option value="MZ">Mozambique</option>
+										<option value="MM">Myanmar</option>
+										<option value="NA">Nambia</option>
+										<option value="NU">Nauru</option>
+										<option value="NP">Nepal</option>
+										<option value="AN">Netherland Antilles</option>
+										<option value="NL">Netherlands (Holland, Europe)</option>
+										<option value="NV">Nevis</option>
+										<option value="NC">New Caledonia</option>
+										<option value="NZ">New Zealand</option>
+										<option value="NI">Nicaragua</option>
+										<option value="NE">Niger</option>
+										<option value="NG">Nigeria</option>
+										<option value="NW">Niue</option>
+										<option value="NF">Norfolk Island</option>
+										<option value="NO">Norway</option>
+										<option value="OM">Oman</option>
+										<option value="PK">Pakistan</option>
+										<option value="PW">Palau Island</option>
+										<option value="PS">Palestine</option>
+										<option value="PA">Panama</option>
+										<option value="PG">Papua New Guinea</option>
+										<option value="PY">Paraguay</option>
+										<option value="PE">Peru</option>
+										<option value="PH">Philippines</option>
+										<option value="PO">Pitcairn Island</option>
+										<option value="PL">Poland</option>
+										<option value="PT">Portugal</option>
+										<option value="PR">Puerto Rico</option>
+										<option value="QA">Qatar</option>
+										<option value="ME">Republic of Montenegro</option>
+										<option value="RS">Republic of Serbia</option>
+										<option value="RE">Reunion</option>
+										<option value="RO">Romania</option>
+										<option value="RU">Russia</option>
+										<option value="RW">Rwanda</option>
+										<option value="NT">St Barthelemy</option>
+										<option value="EU">St Eustatius</option>
+										<option value="HE">St Helena</option>
+										<option value="KN">St Kitts-Nevis</option>
+										<option value="LC">St Lucia</option>
+										<option value="MB">St Maarten</option>
+										<option value="PM">St Pierre &amp; Miquelon</option>
+										<option value="VC">St Vincent &amp; Grenadines</option>
+										<option value="SP">Saipan</option>
+										<option value="SO">Samoa</option>
+										<option value="AS">Samoa American</option>
+										<option value="SM">San Marino</option>
+										<option value="ST">Sao Tome &amp; Principe</option>
+										<option value="SA">Saudi Arabia</option>
+										<option value="SN">Senegal</option>
+										<option value="RS">Serbia</option>
+										<option value="SC">Seychelles</option>
+										<option value="SL">Sierra Leone</option>
+										<option value="SG">Singapore</option>
+										<option value="SK">Slovakia</option>
+										<option value="SI">Slovenia</option>
+										<option value="SB">Solomon Islands</option>
+										<option >Somalia</option>
+										<option >South Africa</option>
+										<option >Spain</option>
+										<option >Sri Lanka</option>
+										<option >Sudan</option>
+										<option >Suriname</option>
+										<option >Swaziland</option>
+										<option ">Sweden</option>
+										<option >Switzerland</option>
+										<option >Syria</option>
+										<option >Tahiti</option>
+										<option >Taiwan</option>
+										<option >Tajikistan</option>
+										<option >Tanzania</option>
+										<option >Thailand</option>
+										<option >Togo</option>
+										<option >Tokelau</option>
+										<option >Tonga</option>
+										<option >Trinidad Tobago</option>
+										<option >Tunisia</option>
+										<option >Turkey</option>
+										<option >Turkmenistan</option>									
+										<option >Tuvalu</option>
+										<option >Uganda</option>
+										<option >Ukraine</option>
+										<option >United Arab Emirates</option>
+										<option >United Kingdom</option>
+										<option >United States of America</option>
+										<option >Uruguay</option>
+										<option >Uzbekistan</option>
+										<option >Vanuatu</option>
+										<option >Vatican City State</option>
+										<option>Venezuela</option>
+										<option >Vietnam</option>
+										<option >Virgin Islands (Brit)</option>
+										<option >Virgin Islands (USA)</option>
+										<option >Wake Island</option>
+										<option>Yemen</option>
+										<option >Zaire</option>
+										<option >Zambia</option>
+										<option >Zimbabwe</option>
+										</select>
+										<span class="focus-input100"></span>
+								</div>
+		
+						<div class="wrap-input100 validate-input m-b-50" data-validate="Birthday">
+							
+								<p style="font-size: 18px; color: #999999;"> Birthday: <input type="date" name="bday" required></p>						
+						</div>
+	
+						<div class="wrap-input100 validate-input m-t-85 m-b-35">
+							<!-- Link o pulsante per l'attivazione del dropdown -->
+							<!-- Menu dropdown -->
+						<select name="gender" class="input100">
+							<option selected disabled>~Select Gender~</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select>  </br></br>
+					<select class="input100" type="text" name="usertype" class="input100">
+					<span class="focus-input100"></span>
+						<option value = "" selected disabled>~Select User Type~</option>
+						<option value="Doctor">Doctor</option>
+						<option value="Patient">Patient</option>
+					</select>
+					</div>
+
+
+
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Register
+						</button>
+					</div>
+
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

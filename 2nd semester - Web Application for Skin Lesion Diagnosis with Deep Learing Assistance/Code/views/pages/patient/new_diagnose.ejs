@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <% include ../../partials/head %>
+
+<style>
+    img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+    }
+</style>
+
+<body>
+
+    <% include ../../partials/navPatient %>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Welcome Area Start ***** -->
+ 
+    <!-- ***** Welcome Area End ***** -->
+
+    <!-- ***** About Us Area Start ***** -->
+     <!-- ***** About Us Area Start ***** -->
+     <section class="uza-about-us-area section-padding-80">
+            <div class="container h-100">
+                    <div class="section-heading mb-5">
+                            <h2>Skin Image Submission</h2>
+                    </div>
+                <div class="row h-100 align-items-center" >
+                    <!-- About Thumbnail -->
+    
+                    <!-- About Us Content -->
+                
+
+                    <div class="about-us-content mb-80">
+                        <div class="container h-100">
+                                <div class="row h-100 align-items-center" >
+        
+                                    <!-- Welcome Thumbnail -->
+                                    <div class="col-12 col-md-6">  
+                                            <div class="welcome-thumbnail">
+                                                    <img src="./img/bg-img/noPhoto.png" style="width:300px;height:300px;" alt="">
+                                                    <!-- <img alt="User Pic" src="./img/profile_picture/" style="width:300px;height:300px;" > -->
+                                                </div>                                         
+                                            <form action="/addskin" method="post" enctype="multipart/form-data">
+                                                <br/>
+                                                <input type="file" name="profile_image" accept="image/*" required /><br/>
+                                                <button type="submit" style="margin:20px" class="btn uza-btn btn-2" >Upload Skin Image</button>
+                                            </form>                                 
+                                        </div>
+                                </div>
+                                
+                            </div>
+                    </div>
+                    
+                </div>
+            </div>
+    
+            <!-- About Background Pattern -->
+            <div class="about-bg-pattern">
+                <img src="./img/core-img/curve-2.png" alt="">
+            </div>
+        </section>
+        <!-- ***** About Us Area End ***** -->
+    <!-- ***** About Us Area End ***** -->
+
+    <!-- ***** Services Area Start ***** -->
+   
+    <!-- ***** Services Area End ***** -->
+
+    <!-- ***** Portfolio Area Start ***** -->
+    
+    <!-- ***** Portfolio Area End ***** -->
+
+    <!-- ***** Blog Area Start ***** -->
+    
+    <!-- ***** Blog Area End ***** -->
+
+    <!-- ***** Newsletter Area Start ***** -->
+    
+    <!-- ***** Newsletter Area End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
+
+    <!-- ***** Footer Area End ***** -->
+
+    <!-- ******* All JS Files ******* -->
+    <% include ../../partials/scripts %>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include ../../partials/head %>
+<meta name="viewport" content="width=device-width, initial-scale=1"  >
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Create a column layout with Flexbox */
+  .row {
+    display: flex;
+    
+  }
+  
+  /* Left column (menu) */
+  .left {
+    flex: 35%;
+    padding: 15px 0;
+    
+  }
+  
+  .left h2 {
+    padding-left: 8px;
+    
+  }
+  
+  /* Right column (page content) */
+  .right {
+    flex: 65%;
+    padding: 15px;
+    
+  }
+  
+  /* Style the search box */
+  #mySearch {
+    width: 100%;
+    font-size: 18px;
+    padding: 11px;
+    border: 1px solid #ddd;
+    
+  }
+  
+  /* Style the navigation menu inside the left column */
+  #myMenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    
+  }
+  
+  #myMenu li a {
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    
+    
+  }
+  
+  #myMenu li a:hover {
+    background-color: #eee;
+  }
+  
+  .vertical-menu {
+    height: 400px;
+    overflow-y: auto;
+  }
+  
+  .vertical-menu a {
+    background-color: rgb(186, 223, 253);
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+  
+  .vertical-menu a:hover {
+    background-color: rgb(186, 223, 253);
+    
+  }
+  
+  .vertical-menu a.active {
+    background-color: rgb(186, 223, 253);
+    color: white;
+    
+  }
+</style>
+<body>
+  
+  <% include ../../partials/navPatient %>
+  <!-- ***** Header Area End ***** -->
+  
+  <!-- ***** Welcome Area Start ***** -->
+  
+  <!-- ***** Welcome Area End ***** -->
+  <!-- ***** Header Area End ***** -->
+  
+  <!-- ***** Welcome Area Start ***** -->
+  
+  <!-- ***** Welcome Area End ***** -->
+  
+  <!-- ***** About Us Area Start ***** -->
+  <!-- ***** About Us Area Start ***** -->
+  
+  <section class="welcome-area">
+    
+    
+    <!-- Single Welcome Slide -->
+    <div class="single-welcome-slide">
+      <!-- Background Curve -->
+      <div class="background-curve">
+        <img src="./img/core-img/curve-1.png" alt="">
+      </div>
+      
+      <!-- Welcome Content -->
+      <div class="container h-100">
+        
+        <div class="row h-100 align-items-center" >
+          <!-- About Thumbnail -->
+          
+          <!-- About Us Content -->
+          <div class="row h-100 align-items-center" >
+            
+            
+            <div class="about-us-content mb-80">
+              
+              <br/> <br/>
+              <div class="row">
+                <div class="left" style="background-color:rgb(186, 223, 253);">
+                  <h2>MY IMAGES</h2>
+                  
+                  <div class="vertical-menu">
+                    <ul id="myMenu">
+                      <% if (patient_result === "" || typeof patient_result === 'undefined')  { %>  
+                        
+                        <% } else { %> 
+                          
+                          <select class="form-control" name="image_name" required="required">
+                            <option selected disabled>~Choose Image~</option>
+                            <% for(var i = 0; i < patient_result.length; i++) {%>   
+                              <option value="<%=patient_result[i].case_id%>"><%=patient_result[i].image%></option>
+                              <% } %>
+                            </select>
+                            
+                              
+                              <% } %>
+                            </ul>
+                          </div>
+                        </div>
+                        
+                        <div class="right" style="background-color:rgb(220, 235, 248);">
+                          <h2>Results</h2>
+                            <div class="skin_image">
+                              <img id = "myskin" src="./img/bg-img/noPhoto1.png" alt="" style="width:600px;height:400px;">
+                            </div>
+                          <div class="single-testimonial-slide d-flex align-items-center">
+                            <!-- Testimonial Content -->
+                            <div class="col-12 col-md-6">
+                              <p>
+                                <b>Result Summary </b>
+                              </p>
+                              <div class="listbox-area">
+                                <div class="left-area">                                  
+                                  <ul  class="case_info"
+                                  id="ss_elem_list" tabindex="0" role="listbox" aria-labelledby="ss_elem"></ul>
+                                  
+                                </ul>
+                              </div>
+                            </div>
+                          </div>    
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <script>
+                      function myFunction() {
+                        var input, filter, ul, li, a, i;
+                        input = document.getElementById("mySearch");
+                        filter = input.value.toUpperCase();
+                        ul = document.getElementById("myMenu");
+                        li = ul.getElementsByTagName("li");
+                        for (i = 0; i < li.length; i++) {
+                          a = li[i].getElementsByTagName("a")[0];
+                          if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            li[i].style.display = "";
+                          } else {
+                            li[i].style.display = "none";
+                          }
+                        }
+                      }
+                    </script>
+                  </div>    
+                </div>
+              </div>
+            </div>
+            
+          </section>
+          <!-- ***** About Us Area Start ***** -->
+          <!-- ***** About Us Area Start ***** -->          
+            <!-- ***** About Us Area End ***** -->
+            <!-- ***** About Us Area End ***** -->
+            
+            <!-- ***** Services Area Start ***** -->
+            
+            <!-- ***** Services Area End ***** -->
+            
+            <!-- ***** Portfolio Area Start ***** -->
+            
+            <!-- ***** Portfolio Area End ***** -->
+            
+            <!-- ***** Blog Area Start ***** -->
+            
+            <!-- ***** Blog Area End ***** -->
+            
+            <!-- ***** Newsletter Area Start ***** -->
+            
+            <!-- ***** Newsletter Area End ***** -->
+            
+            <!-- ***** Footer Area Start ***** -->
+            
+            <!-- ***** Footer Area End ***** -->
+            
+            <!-- ******* All JS Files ******* -->
+            <% include ../../partials/scripts %>
+            <script>
+              $(document).ready(function() {
+                
+                $('select[name="image_name"]').on('change', function() {
+                  var caseid = $(this).val();				
+                  //alert("Hello! I am an alert box from error!!");
+                  var patient_data = new Array();
+                  
+                  if(caseid) {
+                    $.ajax({
+                      url: '/patient_result/case/'+caseid,
+                      type: "POST",
+                      dataType: "json",
+                      error: function(xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                        //alert("Hello! I am an alert box from error!!");
+                      },
+                      success:function(data) {                                                                                                  
+                         //alert("Hello! I am an alert box from data!!");         
+                         $("ul.case_info").empty();
+                        $.each(data, function(key, value) {
+                          if(key == 'case_id'){
+                            $("ul.case_info").append('<li id="caseiid" role="option"><b>Case ID:</b> case_'+ value +'</li>');
+                          }
+                          else if (key == 'upload_date'){
+                            $("ul.case_info").append('<li id="up_date" role="option"><b>Upload Date:</b>'+ value +'</li>');
+                            
+                          }
+                          else if (key == 'image'){
+                            var userImage = './img/patient_skin/'+ value;
+                            document.getElementById("myskin").src=userImage;                            
+                            
+                          }
+                          else if (key == 'result1'){
+                            $("ul.case_info").append('<li id="result1" role="option"><b>Result1:</b>'+ value +'</li>');                            
+                            
+                          }else if (key == 'result2'){                            
+                            $("ul.case_info").append('<li id="result2" role="option"><b>Result2:</b>'+ value +'</li>');                            
+                            
+                          }else if (key == 'result3'){                            
+                            $("ul.case_info").append('<li id="result3" role="option"><b>Result3:</b>'+ value +'</li>');
+                            
+                          }
+                          else if (key == 'doctor_comment'){
+                            $("ul.case_info").append('<li id="doc_comment" role="option"><b>Doctor\'s Comment:</b>'+ value +'</li>');
+                            
+                          }else if (key == 'doctor_id'){
+                            $("ul.case_info").append('<li id="doc_id" role="option"><b>Doctor\'s ID:</b>'+ value +'</li>');
+                            
+                          }
+                          else{
+                            $("ul.case_info").append('');
+                          }
+                            
+                        });
+                        
+                      }
+                    });
+                  }else{                    
+                    
+                  }
+                });
+              });
+            </script>
+            
+          </body>
+          
+          </html>

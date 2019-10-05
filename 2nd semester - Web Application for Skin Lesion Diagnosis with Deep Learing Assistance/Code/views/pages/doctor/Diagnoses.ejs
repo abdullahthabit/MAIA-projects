@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include ../../partials/head %>
+<meta name="viewport" content="width=device-width, initial-scale=1"  >
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Create a column layout with Flexbox */
+  .row {
+    display: flex;
+    
+  }
+  
+  /* Left column (menu) */
+  .left {
+    flex: 35%;
+    padding: 15px 0;
+    
+  }
+  
+  .left h2 {
+    padding-left: 8px;
+    
+  }
+  
+  /* Right column (page content) */
+  .right {
+    flex: 65%;
+    padding: 15px;
+    
+  }
+  
+  /* Style the search box */
+  #mySearch {
+    width: 100%;
+    font-size: 18px;
+    padding: 11px;
+    border: 1px solid #ddd;
+    
+  }
+  
+  /* Style the navigation menu inside the left column */
+  #myMenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    
+  }
+  
+  #myMenu li a {
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    
+    
+  }
+  
+  #myMenu li a:hover {
+    background-color: #eee;
+  }
+  
+  .vertical-menu {
+    height: 400px;
+    overflow-y: auto;
+  }
+  
+  .vertical-menu a {
+    background-color: rgb(186, 223, 253);
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+  
+  .vertical-menu a:hover {
+    background-color: rgb(186, 223, 253);
+    
+  }
+  
+  .vertical-menu a.active {
+    background-color: rgb(186, 223, 253);
+    color: white;
+    
+  }
+</style>
+<body>
+  
+  <% include ../../partials/navDoctor %>
+  <!-- ***** Header Area End ***** -->
+  
+  <!-- ***** Welcome Area Start ***** -->
+  
+  <!-- ***** Welcome Area End ***** -->
+  <!-- ***** Header Area End ***** -->
+  
+  <!-- ***** Welcome Area Start ***** -->
+  
+  <!-- ***** Welcome Area End ***** -->
+  
+  <!-- ***** About Us Area Start ***** -->
+  <!-- ***** About Us Area Start ***** -->
+  
+  <section class="welcome-area">
+    
+    
+    <!-- Single Welcome Slide -->
+    <div class="single-welcome-slide">
+      <!-- Background Curve -->
+      <div class="background-curve">
+        <img src="./img/core-img/curve-1.png" alt="">
+      </div>
+      
+      <!-- Welcome Content -->
+      <div class="container h-100">
+        
+        <div class="row h-100 align-items-center" >
+          <!-- About Thumbnail -->
+          
+          <!-- About Us Content -->
+          <div class="row h-100 align-items-center" >
+            
+            
+            <div class="about-us-content mb-80">
+              
+              <br/> <br/>
+              <div class="row">
+                <div class="left" style="background-color:rgb(186, 223, 253);">
+                  <h2>MY IMAGES</h2>
+                  
+                  <div class="vertical-menu">
+                    <ul id="myMenu">
+                      <% if (patient_info === "" || typeof patient_info === 'undefined')  { %>  
+                        
+                        <% } else { %> 
+                          
+                          <select class="form-control" name="patient_name" required="required">
+                            <option selected disabled>~Choose Patient~</option>
+                            <% for(var i = 0; i < patient_info.length; i++) {%>   
+                                <option value="<%=patient_info[i].patient_id%>"><%=patient_info[i].fname%> <%=patient_info[i].lname%></option>
+                              <% } %>
+                            </select>
+                            <select id="case-selector" class="form-control" name="image_name" required="required">
+                              <option selected disabled>~Choose Case~</option>                                        
+                            </select>
+                              
+                              <% } %>
+                            </ul>
+                          </div>
+                        </div>
+                        
+                        <div class="right" style="background-color:rgb(220, 235, 248);">
+                          <h2>Results</h2>
+                            <div class="skin_image">
+                              <img id = "myskin" src="./img/bg-img/noPhoto1.png" alt="" style="width:600px;height:400px;">
+                            </div>
+                          <div class="single-testimonial-slide d-flex align-items-center">
+                            <!-- Testimonial Content -->
+                            <div class="col-12 col-md-6">
+                              <p>
+                                <b>Result Summary </b>
+                              </p>
+                              <div class="listbox-area">
+                                <div class="left-area">                                  
+                                  <form class="login100-form validate-form" method="POST" action="/update_patient_result">
+                                    <ul  class="case_info"
+                                    id="ss_elem_list" tabindex="0" role="listbox" aria-labelledby="ss_elem"></ul>
+                                    
+                                  </ul>
+                                  <div class="col">
+                                    <h3 class="ml-1">Predictions</h3>
+                                    <ol id="prediction-list"></ol>
+                                  </div>
+                                  <div class="single-testimonial-slide d-flex align-items-center">
+                                    <textarea class="form-control mb-30" style="margin:10px" name="doctor_message" rows="5" cols="60" placeholder="Doctor's Comment" required></textarea>                                        
+                                  </div>
+                                  <button id="predict-button" type="button" style="margin:20px" class="btn uza-btn btn-2" >Predict Using Model</button>
+                                  <button id="update-button" type="submit" style="margin:20px" class="btn uza-btn btn-2" >Update Result</button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="progress progress-bar progress-bar-striped progress-bar-animated mb-2" style="display:none">
+                          Loading Model
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <script>
+                      function myFunction() {
+                        var input, filter, ul, li, a, i;
+                        input = document.getElementById("mySearch");
+                        filter = input.value.toUpperCase();
+                        ul = document.getElementById("myMenu");
+                        li = ul.getElementsByTagName("li");
+                        for (i = 0; i < li.length; i++) {
+                          a = li[i].getElementsByTagName("a")[0];
+                          if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            li[i].style.display = "";
+                          } else {
+                            li[i].style.display = "none";
+                          }
+                        }
+                      }
+                    </script>
+                  </div>    
+                </div>
+              </div>
+            </div>
+            
+          </section>
+          
+            <% include ../../partials/scripts %>
+            <script>
+              $(document).ready(function() {
+                $('select[name="patient_name"]').on('change', function() {
+                    var patientID = $(this).val();	                    		                    
+                      if(patientID) {
+                        $.ajax({
+                            url: '/patient_doctor/patient/'+patientID,
+                            type: "POST",
+                            dataType: "json",
+                            error: function(xhr, status, error) {
+                              var err = eval("(" + xhr.responseText + ")");
+                              //alert(err.Message);
+                              //alert("Hello! I am an alert box from error!!");
+                            },
+                            success:function(data) {
+                              
+                                $('select[name="image_name"]').empty();
+                                $('select[name="image_name"]').append('<option value="'+ " " +'" selected disabled>'+ "~Choose Case~" +'</option>');
+                                $.each(data, function(key, value) {
+                                    $('select[name="image_name"]').append('<option value="'+ value +'">Case_'+ value +'</option>');
+                                });
+
+                            }
+                        });
+                    }else{                      
+                        $('select[name="image_name"]').empty();
+                    }
+                });
+                $('select[name="image_name"]').on('change', function() {
+                  var caseid = $(this).val();				                  
+                  var patient_data = new Array();
+                  
+                  if(caseid) {
+                    $.ajax({
+                      url: '/patient_doctor/case/'+caseid,
+                      type: "POST",
+                      dataType: "json",
+                      error: function(xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                        //alert("Hello! I am an alert box from error!!");
+                      },
+                      success:function(data) {                                                                                                  
+                        //alert("Hello! I am an alert box from data!!");         
+                        $("ul.case_info").empty();
+                        $.each(data, function(key, value) {
+                          if(key == 'case_id'){
+                            $("ul.case_info").append('<li id="caseiid" role="option"><b>Case ID:</b> Case_'+ value +'</li>');
+                            $("ul.case_info").append('<input name="caseiid" id="caseiid" value = '+ value+' type="hidden"></br>'); 
+                          }
+                          else if (key == 'upload_date'){
+                            $("ul.case_info").append('<li id="up_date" role="option"><b>Upload Date:</b>'+ value +'</li>');
+                            
+                          }
+                          else if (key == 'image'){
+                            var userImage = './img/patient_skin/'+ value;
+                            document.getElementById("myskin").src=userImage;                            
+                            
+                          }
+                          else if (key == 'result1'){
+                            $("ul.case_info").append('Result1:<input name="result101" id="result101" value = '+ value+' role="option" readonly></br>'); 
+                            
+                          }else if (key == 'result2'){                            
+                            $("ul.case_info").append('Result2:<input name="result102" id="result102" value = '+ value+' role="option" readonly></br>');                            
+                            
+                          }else if (key == 'result3'){                            
+                            $("ul.case_info").append('Result3:<input name="result103" id="result103" value = '+ value+' role="option" readonly></br>'); 
+                            
+                          }
+                          else if (key == 'doctor_comment'){
+                            $("ul.case_info").append('<li id="doc_comment" role="option"><b>Doctor\'s Comment:</b>'+ value +'</li>');
+                            
+                          }else if (key == 'doctor_id'){
+                            $("ul.case_info").append('<li id="doc_id" role="option"><b>Doctor\'s ID:</b>'+ value +'</li>');
+                            
+                          }
+                          else{
+                            $("ul.case_info").append('');
+                          }
+                            
+                        });
+                        
+                      }
+                    });
+                  }else{                    
+                    
+                  }
+                });
+              });
+            </script>
+            <script>
+              function magnify(imgID, zoom) {
+                  var img, glass, w, h, bw;
+                  img = document.getElementById(imgID);
+                  /*create magnifier glass:*/
+                  glass = document.createElement("DIV");
+                  glass.setAttribute("class", "img-magnifier-glass");
+                  /*insert magnifier glass:*/
+                  img.parentElement.insertBefore(glass, img);
+                  /*set background properties for the magnifier glass:*/
+                  glass.style.backgroundImage = "url('" + img.src + "')";
+                  glass.style.backgroundRepeat = "no-repeat";
+                  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+                  bw = 3;
+                  w = glass.offsetWidth / 2;
+                  h = glass.offsetHeight / 2;
+                  /*execute a function when someone moves the magnifier glass over the image:*/
+                  glass.addEventListener("mousemove", moveMagnifier);
+                  img.addEventListener("mousemove", moveMagnifier);
+                  /*and also for touch screens:*/
+                  glass.addEventListener("touchmove", moveMagnifier);
+                  img.addEventListener("touchmove", moveMagnifier);
+                  
+                  function moveMagnifier(e) {
+                  var pos, x, y;
+                  /*prevent any other actions that may occur when moving over the image*/
+                  e.preventDefault();
+                  /*get the cursor's x and y positions:*/
+                  pos = getCursorPos(e);
+                  x = pos.x;
+                  y = pos.y;
+                  /*prevent the magnifier glass from being positioned outside the image:*/
+                  if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+                  if (x < w / zoom) {x = w / zoom;}
+                  if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+                  if (y < h / zoom) {y = h / zoom;}
+                  /*set the position of the magnifier glass:*/
+                  glass.style.left = (x - w) + "px";
+                  glass.style.top = (y - h) + "px";
+                  /*display what the magnifier glass "sees":*/
+                  glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+              }
+  
+              function getCursorPos(e) {
+                  var a, x = 0, y = 0;
+                  e = e || window.event;
+                  /*get the x and y positions of the image:*/
+                  a = img.getBoundingClientRect();
+                  /*calculate the cursor's x and y coordinates, relative to the image:*/
+                  x = e.pageX - a.left;
+                  y = e.pageY - a.top;
+                  /*consider any page scrolling:*/
+                  x = x - window.pageXOffset;
+                  y = y - window.pageYOffset;
+                  return {x : x, y : y};
+                  }
+              }
+              
+              </script>
+  
+              <script>
+              /* Initiate Magnify Function
+              with the id of the image, and the strength of the magnifier glass:*/
+              magnify("myskin", 2);
+              </script>
+              <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.7"></script>
+              <script src="skinLesion_classes.js"></script>
+              <script src="predict.js"></script>
+
+          </body>
+          
+          </html>

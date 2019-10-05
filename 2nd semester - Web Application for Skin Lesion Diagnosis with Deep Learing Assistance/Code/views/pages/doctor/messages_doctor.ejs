@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include ../../partials/head %>
+<style>
+    * {
+        margin: 0px; padding: 0px;
+        border: none;
+        box-sizing: border-box;
+    }
+    
+    html, body {
+        font: 14px Tahoma, Geneva, sans-serif;
+        width: 100%; height: 100%;
+    }
+    
+    header h1 {
+        margin: 0px; padding: 50px 0px 0px;
+        color: #EEE;
+        font-size: 30px;
+    }
+    .mailbox {
+        margin: 0px auto -100px;
+        position: relative;
+        background: #CCDDED;
+        border-radius: 0px 5px 0px 0px;
+        width: 90%; max-width: 960px;
+    }
+    
+    .nav {
+        position: absolute;
+        top: 0px; bottom: 0px;
+        background: #EEE;
+        width: 200px;
+    }
+    
+    .nav a {
+        display: block;
+        padding: 5px 10px;
+        color: #3D9FC4;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    
+    .nav a.active {
+        background: #CCDDED;
+    }
+    
+    .nav a:first-child {
+        margin: 10px 0px 10px;
+    }
+    
+    .messages {
+        padding: 10px 10px 10px 210px;
+        width: 100%;
+    }
+    
+    .actions-dropdown {
+        display: block;
+        float: right;
+        position: relative;
+        margin: 5px 10px 10px 0px;
+    }
+    
+    .actions-dropdown label {
+        padding: 5px 10px;
+        background: #EEE;
+        color: #666;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .actions-dropdown label span {
+        color: #999;
+        font-size: 10px;
+    }
+    
+    .actions-dropdown:hover ul {
+        display: block;
+    }
+    
+    .actions-dropdown ul {
+        display: none;
+        position: absolute;
+        list-style: none;
+        background: #EEE;
+        border-radius: 5px;
+        width: 100%;
+    }
+    
+    .actions-dropdown li {
+        padding: 5px 10px;
+        color: #666;
+        cursor: pointer;
+    }
+    
+    .actions-dropdown li:hover {
+        color: #000;
+    }
+    
+    .actions-dropdown li:first-child {
+        margin-top: 5px;
+    }
+    
+    input[name=search] {
+        display: block;
+        float: right;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        background: #EEE;
+        font: 14px Tahoma, Geneva, sans-serif;
+        border-radius: 5px;
+    }
+    
+    input[name=search]:focus {
+        outline: none;
+    }
+    
+    .message {
+        clear: both;
+        margin-bottom: 5px;
+        position: relative;
+        padding: 5px;
+        background: #bbd0e4;
+        border-radius: 5px;
+    }
+    
+    .message input {
+        position: absolute;
+        top: 8px; left: 10px;
+        width: 30px;
+    }
+    
+    .message .sender {
+        display: block;
+        position: absolute;
+        left: 40px;
+        color: #000;        
+        width: 90px;
+    }
+
+    .messages .t_i {
+        display: inline-block;
+        position: relative;
+        padding-left: 40px;
+        color: #000;
+        font-weight: bold;
+        width: 50px;
+    }
+    .messages .sub_i {
+        display: inline-block;
+        padding-left: 200px;
+        font-weight: bold;
+        position: relative;
+        width: 50px;
+    }
+    .messages .dt_i {
+        display: inline-block;
+        padding-left: 410px;
+        font-weight: bold;
+        position: relative;
+        width: 50px;        
+    }
+    .messages .row_message {
+        display: inline-block;
+        position: relative;
+        padding-left: 40px;
+        color: #000;        
+        width: 400px;
+    }
+    .messages_r .t_r {
+        display: block;
+        position: absolute;
+        left: 40px;
+        color: #000;
+        font-weight: bold;
+        width: 90px;
+    }
+    .message .title {
+        display: inline-block;
+        padding-left: 250px;
+        width: 100%;
+    }
+    
+    .message .sub_r {
+        display: inline-block;
+        padding-left: 250px;
+        width: 100%;
+    }
+    
+    
+    .message .date {
+        position: absolute;
+        right: 10px;
+    }
+    .message .content {
+        position: absolute;
+        right: 10px;
+    }
+</style>
+
+<body>
+    <% include ../../partials/navDoctor %>
+    <!-- ***** Header Area End ***** -->
+    
+    <!-- ***** Breadcrumb Area Start ***** -->
+    <div class="breadcrumb-area">
+        <div class="container h-100">
+            <div class="row h-100 align-items-end">
+                <div class="col-12">
+                    <div class="breadcumb--con">
+                        <h2 class="title">Message</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Curve -->
+        <div class="breadcrumb-bg-curve">
+            <img src="./img/core-img/curve-1.png" alt="">
+        </div>
+    </div>
+    <!-- ***** Breadcrumb Area End ***** -->
+    
+    <!-- ***** Contact Area Start ***** -->
+    <section class="uza-contact-area section-padding-80">
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Contact Form -->
+                <div class="col-12 col-lg-8">
+                    <div class="uza-contact-form mb-80">
+                        <div class="contact-heading mb-50">
+                            <h4>If you want to send a private message to a patient, do it here.</h4>
+                        </div>
+                        <form action="addmessage_doctor" method="post">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">                                        
+                                        <select class="form-control" name="reciever_id1" required="required">
+                                                <option selected disabled>~Choose Reciever~</option>
+                                                <% for(var i = 0; i < patient_list.length; i++) {%>   
+                                                    <option value="<%=patient_list[i].patient_id%>"><%=patient_list[i].fname%></option>
+                                                <% } %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control mb-30" name="subject1" placeholder="Subject">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control mb-30" name="message" rows="8" cols="80" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" style="margin:20px" class="btn uza-btn btn-2" >Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mailbox">
+            <div class="nav">
+                <div class="col-lg-6">
+                    <a onclick = "openEmail(event,'Inbox')"  href="#" class="tablinks">Inbox </a>
+                    <a onclick = "openEmail(event,'Sent')" href="#" class="tablinks">Sent</a>
+                </div>
+                
+            </div>
+            <% if (doctor_inbox === "" || typeof doctor_inbox === 'undefined')  { %>  
+                <div class="messages_empty" >                    
+                    
+                </div> 
+                <% } else { %>  
+                    <div class="messages" id="Inbox">    
+                        <span class="t_i">Sender</span>
+                        <span class="sub_i">Subject</span>
+                        <span class="dt_i">Date</span>                                        
+                        <% for(var i = 0; i < doctor_inbox.length; i++) {
+                            
+                            var temp_date = doctor_inbox[i].date;
+                            var dd = temp_date.getDate();
+                            var mm = temp_date.getMonth() + 1; 
+                            var yyyy = temp_date.getFullYear();
+
+                            var sent_date = dd + '/' + mm + '/' + yyyy;
+                            %>                                                                         
+                            
+                            <div class="message">                                
+                                <span class="sender"><%=doctor_inbox[i].sender_id%></span>
+                                <span class="date"><%=sent_date%></span>
+                                <span class="title"><%=doctor_inbox[i].subject%></span>
+                                <span class="row_message"></span>
+                                <span class="row_message">Message--- <%=doctor_inbox[i].message%></span>
+                                
+                                <!-- <button onclick="myFunction1()" id="myBtn1">Open Message</button>   -->
+                            </div>
+                            
+                            
+                            <% } %>
+                            <% if (doctor_inbox.length === 0 )  { %>  
+                                <div class="message">
+                                        <span class="sender"></span>
+                                        <span class="date"></span>
+                                        <span class="title"></span> 
+                                        <span class="row_message"></span>
+                                        <span class="row_message"></span>                                                                                                                                  
+                                    </div>
+                            <% } %> 
+                        </div> 
+                        <% } %>
+                        <% if (doctor_outbox === "" || typeof doctor_outbox === 'undefined')  { %>  
+                            
+                            <% } else { %>  
+                                <div class="messages hidden" style="display: none;"  id="Sent">
+                                    <span class="t_i">Reciever</span>
+                                    <span class="sub_i">Subject</span>
+                                    <span class="dt_i">Date</span>
+                                    <!-- <input name="search" placeholder="search" />                         -->
+                                    <% for(var i = 0; i < doctor_outbox.length; i++) {
+                                        var temp_date1 = doctor_outbox[i].date;
+                                        var dd1 = temp_date1.getDate();
+                                        var mm1 = temp_date1.getMonth() + 1; 
+                                        var yyyy1 = temp_date1.getFullYear();
+
+                                        var sent_date1 = dd1 + '/' + mm1 + '/' + yyyy1;
+                                        %>                                                                         
+                                        
+                                        <div class="message">
+                                            <span class="sender"><%=doctor_outbox[i].reciever_id%></span>
+                                            <span class="date"><%=sent_date1%></span>
+                                            <span class="title"><%=doctor_outbox[i].subject%></span> 
+                                            <span class="row_message"></span>
+                                            <span class="row_message">Message--- <%=doctor_outbox[i].message%></span>                                                                                                                                  
+                                        </div>
+                                        
+                                        
+                                        <% } %>
+                                        <% if (doctor_outbox.length === 0 )  { %>  
+                                            <div class="message">
+                                                    <span class="sender"></span>
+                                                    <span class="date"></span>
+                                                    <span class="title"></span> 
+                                                    <span class="row_message"></span>
+                                                    <span class="row_message"></span>                                                                                                                                  
+                                                </div>
+                                        <% } %> 
+                                    </div> 
+                                    <% } %>                            
+                                    
+                                    <!-- <li class="<%= selected_menu == 'Read' ? 'current-item' : '' %>"><a href="#" class="btn uza-btn btn-2" >Read</a></li> -->
+                                    
+                                    
+                                    
+                                    <script>
+                                            function openEmail(evt, email) {
+                                                var i, messages, tablinks;
+                                                messages = document.getElementsByClassName("messages");
+                                                for (i = 0; i < messages.length; i++) {
+                                                    messages[i].style.display = "none";
+                                                }
+                                                tablinks = document.getElementsByClassName("tablinks");
+                                                for (i = 0; i < tablinks.length; i++) {
+                                                    tablinks[i].className = tablinks[i].className.replace("active", "");
+                                                }
+                                                document.getElementById(email).style.display = "block";
+                                                evt.currentTarget.className += " active";
+                                            }
+                                            
+                                        </script>
+                                    
+                                    
+                                </div> 
+                            </section>
+                            <!-- ***** Contact Area End ***** -->
+                            
+                            <!-- ***** Newsletter Area Start ***** -->
+                            
+                            <!-- ***** Newsletter Area End ***** -->
+                            
+                            <!-- ***** Footer Area Start ***** -->
+                            <% include ../../partials/footer_user %>
+                            
+                            <!-- ***** Footer Area End ***** -->
+                            
+                            <!-- ******* All JS Files ******* -->
+                            <% include ../../partials/scripts %>
+                            
+                        </body>
+                        
+                        </html>
