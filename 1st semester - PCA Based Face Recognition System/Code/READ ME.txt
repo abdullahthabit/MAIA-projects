@@ -1,0 +1,7 @@
+To Run the Program:
+
+1) unzip the  project folder
+2) Open up MATLAB and navigate to the project folder
+3) open the file: gui.m and run it
+
+A graphical interface will show up to select an image and find its matches.
