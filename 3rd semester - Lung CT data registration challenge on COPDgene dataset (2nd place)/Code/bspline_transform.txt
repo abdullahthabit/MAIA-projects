@@ -1,0 +1,65 @@
+// ### AUTO-GENERATED FILE THROUGH PYTHON ### 
+ 
+ 
+ 
+ //  # Configuring the Input Image Parameters #  
+ 
+(FixedInternalImagePixelType  "float") 
+(FixedImageDimension  3) 
+(MovingInternalImagePixelType  "float") 
+(MovingImageDimension  3) 
+ 
+ 
+ //  # Configuring the Registration Componenets Parameters #  
+ 
+(Registration  "MultiResolutionRegistration") 
+(FixedImagePyramid  "FixedRecursiveImagePyramid") 
+(MovingImagePyramid  "MovingRecursiveImagePyramid") 
+(Interpolator  "BSplineInterpolator") 
+(Metric  "AdvancedMattesMutualInformation") 
+(Optimizer  "AdaptiveStochasticGradientDescent") 
+(ResampleInterpolator  "FinalBSplineInterpolator") 
+(Resampler  "DefaultResampler") 
+(Transform  "BSplineTransform") 
+(NumberOfResolutions  6) 
+(ImagePyramidSchedule  14 14 3  10 10 2  8 8 2  4 4 1  2 2 1  1 1 1) 
+(FinalGridSpacingInVoxels  20.0 20.0 4.0) 
+(HowToCombineTransforms  "Compose") 
+(SP_A  50.0) 
+ 
+ 
+ //  # Configuring the Sampler Parameters #  
+ 
+(ImageSampler  "RandomCoordinate") 
+(NumberOfSpatialSamples  10000) 
+(NewSamplesEveryIteration  "true") 
+(UseRandomSampleRegion  "false") 
+(SampleRegionSize  50.0 50.0 50.0) 
+(MaximumNumberOfSamplingAttempts  50) 
+ 
+ 
+ //  # Configuring the Optimizer Parameters #  
+ 
+(MaximumNumberOfIterations  2000) 
+(AutomaticParameterEstimation  "true") 
+(UseAdaptiveStepSizes  "true") 
+  
+ 
+  //  # Configuring the Interpolator ReSampler Parameters #  
+ 
+(BSplineInterpolationOrder  1) 
+(FinalBSplineInterpolationOrder  3) 
+(DefaultPixelValue  0) 
+ 
+ 
+ //  # Configuring the Result Configurations Parameters # 
+ 
+(WriteTransformParametersEachIteration  "false") 
+(WriteTransformParametersEachResolution  "true") 
+(WriteResultImageAfterEachResolution  "false") 
+(WritePyramidImagesAfterEachResolution  "false") 
+(WriteResultImage  "true") 
+(ResultImageFormat  "nii.gz") 
+(ShowExactMetricValue  "false") 
+(ErodeMask  "false") 
+(UseDirectionCosines  "true") 
